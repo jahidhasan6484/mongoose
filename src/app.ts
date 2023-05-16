@@ -1,8 +1,11 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import cors from 'cors';
-
-
 const app: Application = express()
+
+// Application routes
+import userRoutes from './app/modules/user/user.route'
+
+
 // Using cors
 app.use(cors())
 
@@ -10,9 +13,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req: Request, res: Response) => {
-    // Insert data into mongodb
-    res.send('Hello BRO!')
-})
+// app.get('/api/v1/user', userRoutes)
+app.use('/api/v1/user', userRoutes)
 
 export default app;
