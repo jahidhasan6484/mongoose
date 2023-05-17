@@ -1,5 +1,7 @@
+import { Model } from "mongoose"
+
 // Creat an interface
-interface UserInterface {
+export interface UserInterface {
     id: string,
     name: {
         firstName: string,
@@ -10,4 +12,13 @@ interface UserInterface {
     role: string
 }
 
-export default UserInterface;
+// Static
+interface UserModel extends Model<UserInterface> {
+    
+}
+
+
+// Instance methods
+export interface UserMethods {
+    fullName() : string
+}
