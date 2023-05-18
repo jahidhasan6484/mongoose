@@ -1,4 +1,5 @@
-import { Model } from "mongoose"
+import { HydratedDocument, Model } from "mongoose"
+
 
 // Creat an interface
 export interface UserInterface {
@@ -13,12 +14,12 @@ export interface UserInterface {
 }
 
 // Static
-interface UserModel extends Model<UserInterface> {
-    
+export interface UserModel extends Model<UserInterface, {}, UserMethods> {
+    getFoolballers(): Promise<HydratedDocument<UserInterface, UserMethods>>;
 }
 
 
 // Instance methods
 export interface UserMethods {
-    fullName() : string
+    fullName(): string
 }

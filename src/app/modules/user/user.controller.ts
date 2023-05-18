@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUserByIdFromDB, getUsersFromDB, insertUserToDB } from "./user.service";
+import { getFootballerFromDB, getUserByIdFromDB, getUsersFromDB, insertUserToDB } from "./user.service";
 
 export const createUser = async (req: Request, res: Response) => {
     const data = req.body;
@@ -30,6 +30,15 @@ export const getUser = async(req:Request, res: Response) => {
     res.status(200).json({
         status: "success",
         data: user
+    })
+}
+
+export const getFootballers = async(req:Request, res: Response) => {
+    const footballer = await getFootballerFromDB()
+
+    res.status(200).json({
+        status: "success",
+        data: footballer
     })
 }
 
