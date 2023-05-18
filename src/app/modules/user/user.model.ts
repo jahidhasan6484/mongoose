@@ -1,8 +1,8 @@
 import { Model, Schema, model } from "mongoose"
-import { UserInterface, UserMethods, UserModel } from "./user.interface";
+import { UserInterface, UserModel } from "./user.interface";
 
 // Creat schema using interface
-const userSchema = new Schema<UserInterface, UserModel, UserMethods>({
+const userSchema = new Schema<UserInterface>({
     id: {
         type: String,
         required: true,
@@ -31,10 +31,6 @@ const userSchema = new Schema<UserInterface, UserModel, UserMethods>({
         required: true
     }
 })
-
-userSchema.method('fullName', function fullName() {
-    return this.name.firstName + ' ' + this.name.lastName;
-});
 
 // Create schema using static
 userSchema.static('getFoolballers', async function getFoolballers() {

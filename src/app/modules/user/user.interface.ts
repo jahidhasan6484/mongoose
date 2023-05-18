@@ -14,12 +14,7 @@ export interface UserInterface {
 }
 
 // Static
-export interface UserModel extends Model<UserInterface, {}, UserMethods> {
-    getFoolballers(): Promise<HydratedDocument<UserInterface, UserMethods>>;
+export interface UserModel extends Model<UserInterface, {}> {
+    getFoolballers(): Promise<HydratedDocument<UserInterface>>;
 }
 
-
-// Instance methods
-export interface UserMethods {
-    fullName(): string
-}
