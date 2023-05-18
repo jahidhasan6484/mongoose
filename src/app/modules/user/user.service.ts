@@ -20,8 +20,7 @@ export const getUserByIdFromDB = async (payload: string): Promise<UserInterface 
     return user;
 }
 
-export const getFootballerFromDB = async (payload: string): Promise<UserInterface | null> => {
-    const user = await User.findOne({ id: payload }, { name: 1, role: 1 })
-
-    return user;
+export const getFootballerFromDB = async () => {
+    const footballers = await User.getFoolballers()
+    return footballers;
 }
